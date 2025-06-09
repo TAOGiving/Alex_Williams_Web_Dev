@@ -278,13 +278,37 @@ body {
   z-index: 1;
 }
 
-.background_shape {
+/* .background_shape {
   position: absolute;
   top: 0;
   left: 40%;
   width: 50%;
   height: 90%;
   z-index: 0;
+} */
+
+.containerProfileImage {
+  position: relative;
+}
+
+.containerProfileImage img {
+  display: block;
+  width: auto;
+  height: 75vh;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  width: auto;
+  opacity: 0;
+  transition: 1s ease;
+}
+.overlay:hover {
+  opacity: 1;
 }
 
 /**********************************/
