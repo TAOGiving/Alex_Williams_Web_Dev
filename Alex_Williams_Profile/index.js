@@ -13,13 +13,31 @@ function updateMainImage(imageSrc) {
   }, 500); // This should match the transition duration in CSS
 }
 
-// function updateMainImage(imageSrc) {
-//   document.getElementById("displayed-image").src = imageSrc;
-// }
-
 function updateMainImage2(imageSrc) {
   document.getElementById("displayed-image-2").src = imageSrc;
 }
+
+//Update the specialists in Nav Bar
+const texts = ["Father", "Frontend Developer", "Artist"];
+let currentIndex = 0;
+
+function changeText() {
+  const currentSpecialistEl = document.getElementById("changespecialist");
+
+  // Fade out
+  currentSpecialistEl.style.opacity = 0;
+
+  // After the fade-out is complete, change the text
+  setTimeout(() => {
+    currentIndex = (currentIndex + 1) % texts.length;
+    currentSpecialistEl.innerText = texts[currentIndex];
+
+    // Fade in
+    currentSpecialistEl.style.opacity = 1;
+  }, 2000); // Match this time with the transition duration for smoothness
+}
+
+setInterval(changeText, 4000); // Change text every 2 seconds (1s fade out + 1s display)
 
 //Animation for Nav Links
 

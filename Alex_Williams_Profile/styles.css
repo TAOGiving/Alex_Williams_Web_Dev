@@ -21,49 +21,45 @@
   /* Primary accents for buttons, CTA's and highlights */
   /* Secondary accent for links, hover and subtle dividers */
 
-  /* Pallet 1 Warm and Natural */
-  --off_white: #f9f5f1; /* Background */
-  --soft_Mauve: #d291bc; /* Primary Accent */
-  --deep_plum: #7b3f61; /* Secondary Accent */
-  --dark_gray: #4a4a4a; /* Text */
-
-  /* Pallet 2 Bright and Friendly */
-  --light_cream: #fff9f0; /* Background */
-  --golden_yellow: #ffb900; /* Primary Accent */
-  --teal-green: #00796b; /* Secondary Accent */
-  --neutral_charcoal: #3d3d3d; /* Text */
-
   /* Pallet 3 Sophisticated and Artistic */
   --soft_beige: #eae8dc; /* Background */
   --sage_green: #5a8f7b; /* Primary Accent */
   --burnt_terracotta: #9a533e; /* Secondary Accent */
   --deep_gray: #2e2e2e; /* Text */
+}
 
-  /* Pallet 4 Playful Yet professional */
-  --white: #ffffff; /* Background */
-  --soft_coral: #ff6f61; /* Primary Accent */
-  --dusty_purple: #6c5b7b; /* Secondary Accent */
-  --dark_gray: #2f2f2f; /* Text */
+:root {
+  --primary-color: #2c3e50; /* Dark Blue */
+  --secondary-color: #3498db; /* Light Blue */
+  --background-color: #ecf0f1; /* Light Grey */
+  --text-color: #34495e; /* Dark Grey */
+  --accent-color: #e74c3c; /* Red */
+  --border-color: #bdc3c7; /* Light Border Grey */
 }
 
 /********************/
 /*** Header fonts ***/
 /********************/
-/* Playfair Display */
-/* Raleway */
-/* Montserrat */
-/* Amatic SC */
+
+/* Serif Fonts (for headings): */
+
+/* Merriweather: A classic serif font that is easy to read on screens. */
+
+/* Playfair Display: An elegant serif font perfect for headings. */
 
 /********************/
 /*** Body Fonts ***/
 /********************/
-/* Open Sans */
-/* Roboto */
-/* Lora */
-/* Poppins */
+/* Segoe UI: A modern and clean interface font. */
+
+/* Roboto: A versatile and widely used font by Google. */
+
+/* Open Sans: Known for its neutrality and readability. */
+
+/* Lato: A friendly and warm font that pairs well with many other fonts. */
 
 nav {
-  background: var(--soft_beige) !important;
+  background: var(--background-color) !important;
 }
 @media (max-width: 575px) {
   #nav {
@@ -73,19 +69,26 @@ nav {
 
 .nav-link {
   font-family: "Montserrat", serif;
-  color: var(--sage_green) !important;
+  color: var(-primary-color) !important;
   border-bottom: 2px solid transparent;
   position: relative;
 }
 
 .nav-link:hover {
-  color: var(--burnt_terracotta) !important;
-  border-bottom: 2px solid var(--burnt_terracotta) !important;
+  color: var(--secondary-color) !important;
+  border-bottom: 2px solid var(--secondary-color) !important;
 }
 
 .nav-link_active {
-  color: var(--deep_gray) !important;
+  color: var(--text-color) !important;
   border-bottom: 2px solid transparent;
+}
+
+#changespecialist {
+  opacity: 1;
+  transition: opacity 2s ease-in-out;
+  position: relative; /* To prevent text shifting */
+  width: 17vw;
 }
 
 /******************************/
@@ -137,7 +140,7 @@ nav {
 }
 
 body {
-  background: var(--soft_beige) !important;
+  background: var(--background-color) !important;
   /* display: flex;
   flex-direction: column;
   align-items: center; */
@@ -152,58 +155,58 @@ body {
 }
 
 .primary_accent {
-  color: var(--sage_green) !important;
+  color: var(-primary-color) !important;
 }
 
 .primary_accent_btn {
-  background-color: var(--sage_green) !important;
+  background-color: var(-primary-color) !important;
   color: white;
 }
 .primary_accent_btn:hover {
-  background-color: var(--burnt_terracotta) !important;
+  background-color: var(--secondary-color) !important;
   color: white;
 }
 
 .secondary_accent {
-  color: var(--burnt_terracotta) !important;
+  color: var(--secondary-color) !important;
 }
 
 .secondary_accent_btn {
-  background-color: var(--burnt_terracotta) !important;
+  background-color: var(--secondary-color) !important;
   color: white;
 }
 
 .secondary_accent_btn:hover {
-  background-color: var(--deep_gray) !important;
+  background-color: var(--text-color) !important;
   color: white;
 }
 
 .secondary_accent_label {
   color: black;
-  background-color: var(--burnt_terracotta) !important;
+  background-color: var(--secondary-color) !important;
   cursor: inherit;
 }
 
 .secondary_accent_label:hover {
   color: black;
-  background-color: var(--burnt_terracotta) !important;
+  background-color: var(--secondary-color) !important;
   cursor: inherit;
 }
 
 .primary_accent_label {
   color: black;
-  background-color: var(--sage_green) !important;
+  background-color: var(-primary-color) !important;
   cursor: inherit;
 }
 
 .primary_accent_label:hover {
   color: black;
-  background-color: var(--sage_green) !important;
+  background-color: var(-primary-color) !important;
   cursor: inherit;
 }
 
 .text_accent {
-  color: var(--deep_gray) !important;
+  color: var(--text-color) !important;
 }
 
 @media (min-width: 575px) {
@@ -212,7 +215,7 @@ body {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
-    background-color: var(--burnt_terracotta);
+    background-color: var(--secondary-color);
     filter: opacity(0.5);
     box-shadow: 0px 7px 10px 0px rgba(0, 0, 0, 1) inset;
   }
@@ -224,7 +227,7 @@ body {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
-    background-color: var(--burnt_terracotta);
+    background-color: var(--secondary-color);
     filter: opacity(0.5);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -235,7 +238,7 @@ body {
     height: 30px;
     margin-left: 0;
     margin-right: 0;
-    background-color: var(--soft_beige);
+    background-color: var(--background-color);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     /* box-shadow: 0px -10px 6px 5px rgba(0, 0, 0, 0.25);
@@ -246,7 +249,7 @@ body {
     height: 30px;
     margin-left: 0;
     margin-right: 0;
-    background-color: var(--soft_beige);
+    background-color: var(--background-color);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     /* box-shadow: 0px -10px 6px 5px rgba(0, 0, 0, 0.25);
