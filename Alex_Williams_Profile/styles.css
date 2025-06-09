@@ -273,8 +273,8 @@ body {
 
 .foreground_image {
   position: relative;
-  width: 90%;
-  height: auto;
+  width: auto;
+  height: 75vh;
   z-index: 1;
 }
 
