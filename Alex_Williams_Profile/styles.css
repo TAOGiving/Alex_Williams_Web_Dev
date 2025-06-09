@@ -293,7 +293,7 @@ body {
 
 .containerProfileImage img {
   display: block;
-  width: auto;
+  width: 75%;
   height: 75vh;
 }
 .overlay {
