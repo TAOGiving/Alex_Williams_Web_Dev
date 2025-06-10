@@ -91,6 +91,14 @@ nav {
   width: 17vw;
 }
 
+.circleProfileImage {
+  width: 50px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+}
+
 /******************************/
 /* Navigation Links Animation */
 /******************************/
@@ -155,11 +163,11 @@ body {
 }
 
 .primary_accent {
-  color: var(-primary-color) !important;
+  color: var(--primary-color) !important;
 }
 
 .primary_accent_btn {
-  background-color: var(-primary-color) !important;
+  background-color: var(--primary-color) !important;
   color: white;
 }
 .primary_accent_btn:hover {
@@ -195,13 +203,13 @@ body {
 
 .primary_accent_label {
   color: black;
-  background-color: var(-primary-color) !important;
+  background-color: var(--primary-color) !important;
   cursor: inherit;
 }
 
 .primary_accent_label:hover {
   color: black;
-  background-color: var(-primary-color) !important;
+  background-color: var(--primary-color) !important;
   cursor: inherit;
 }
 
@@ -276,6 +284,7 @@ body {
   width: auto;
   height: 75vh;
   z-index: 1;
+  cursor: pointer;
 }
 
 /* .background_shape {
