@@ -281,7 +281,7 @@ body {
   width: auto;
   height: 75vh;
   z-index: 1;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 /* .background_shape {
