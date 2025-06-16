@@ -1,5 +1,6 @@
+//*******************************************/
 //Main image updater for gallery and home page
-
+//*******************************************/
 function updateMainImage(imageSrc) {
   const displayedImage = document.getElementById("displayed-image");
 
@@ -17,7 +18,10 @@ function updateMainImage2(imageSrc) {
   document.getElementById("displayed-image-2").src = imageSrc;
 }
 
+//********************************/
 //Update the specialists in Nav Bar
+//********************************/
+
 const texts = ["Father", "Frontend Developer", "Artist"];
 let currentIndex = 0;
 
