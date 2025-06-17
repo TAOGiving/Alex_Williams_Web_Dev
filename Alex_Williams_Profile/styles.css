@@ -495,3 +495,8 @@ video {
   width: 100vw;
   height: 75vh;
 }
+
+.small_Logo {
+  width: auto;
+  height: 30px;
+}
