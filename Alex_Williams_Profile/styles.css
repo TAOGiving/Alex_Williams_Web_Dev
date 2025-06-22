@@ -500,3 +500,12 @@ video {
   width: auto;
   height: 30px;
 }
+
+.badge {
+  width: 190px;
+}
+
+.remove_text_decor {
+  text-decoration: none !important;
+  color: inherit !important;
+}
