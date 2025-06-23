@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="fp_styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>The Art Of Giving</title>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg sticky-top boarder-small blur-filter">
+      <div class="container justify-content-center align-content-center mb-1">
+        <div
+          class="col-md-3 justify-content-center align-content-center text-center"
+        >
+          <a href="fp_home.html">
+            <img
+              src="images/Logo.png"
+              alt="The Art of Giving Logo"
+              class="logo me-3 mb-2"
+            />
+          </a>
+          <a href="fp_home.html" class="navbar-brand">
+            <h2 class="brand mt-1">The Art Of Giving</h2>
+          </a>
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbar-content"
+          aria-controls="navbar-content"
+          aria-expanded="false"
+          aria-label="Toggle Navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse p-2 rounded mt-4 mt-lg-0"
+          id="navbar-content"
+        >
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-lg-0 mt-2">
+            <li class="nav-item mx-4">
+              <div class="icon">
+                <a
+                  href="fp_home.html"
+                  class="nav-link text-light"
+                  aria-current="page"
+                  >Home</a
+                >
+              </div>
+            </li>
+            <li class="nav-item mx-4">
+              <div class="icon">
+                <a href="fp_gallery.html" class="nav-link text-light"
+                  >Gallery</a
+                >
+              </div>
+            </li>
+            <!-- <li class="nav-item mx-4">
+              <div class="icon">
+                <a href="Prints.html" class="nav-link text-light">Prints</a>
+              </div>
+            </li> -->
+            <!-- <li class="nav-item">
+              <div class="icon">
+                <a
+                  href="Tutorials.html"
+                  class="nav-link ms-4 ms-lg-0 text-secondary"
+                  >Tutorials</a
+                >
+              </div>
+            </li> -->
+            <li class="nav-item mx-3">
+              <div class="icon">
+                <a
+                  href="fp_pricing.html"
+                  class="nav-link ms-2 text-light active fw-bolder"
+                  >Pricing</a
+                >
+              </div>
+            </li>
+            <li class="nav-item mx-3">
+              <div class="icon">
+                <a href="fp_about.html" class="nav-link ms-2 text-light"
+                  >About</a
+                >
+              </div>
+            </li>
+            <li class="nav-item mx-3">
+              <div class="icon">
+                <a href="fp_contact.html" class="nav-link ms-2 text-light"
+                  >Contact</a
+                >
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Navigation Bar -->
+
+    <!-- <div class="container" id="rowSpacer1"><div class="row"></div></div> -->
+
+    <!-- Background image -->
+    <div class="container">
+      <div class="gradient"></div>
+    </div>
+    <!-- Background image -->
+
+    <!-- Home Banner -->
+    <header class="main-header my-5">
+      <div class="container">
+        <div class="row align-items-center text-center gx-md-5">
+          <div class="col-md-12">
+            <div class="home-header-text-holder pe-md-5">
+              <h1
+                class="main-header-text fs-1 mb-4 fw-normal mt-4 fw-bold text-light"
+              >
+                Create your own Masterpiece
+              </h1>
+              <h3 class="main-header-text fs-5 text-light">
+                Below you can create a Masterpiece quote by selecting what you
+                want subjects, sizes, styles and finishes.
+              </h3>
+            </div>
+          </div>
+          <div class="row align-items-center text-center gx-md-5">
+            <div class="col-md-12">
+              <div class="home-header-text-holder pe-md-5 text-center ms-4">
+                <h1
+                  class="main-header-text fs-1 mb-4 fw-normal fw-bold text-light mt-5"
+                >
+                  What you will recieve
+                </h1>
+                <h3 class="main-header-text fs-5 text-light mb-5">
+                  An airbrushed artwork from your image, painted on aluminium
+                  robust enough to be hung without framing.<br />
+                  <br />
+                  Finished in your choice of either a gloss or matte automotive
+                  clear coat laquor for a water and dirt proof work of art, and
+                  long lasting colour or no finish.
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Home Banner -->
+    <button
+      onclick="quoteFunction()"
+      id="myBtn"
+      title="Check your quote"
+      class="hidden"
+    >
+      Check your quote
+    </button>
+
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-9">
+          <!-- Size Selector -->
+          <div class="container">
+            <div class="row align-items-center justify-items-center gx-md-5">
+              <h4
+                class="main-header-text fs-1 mb-4 fw-normal fw-bold text-light"
+              >
+                1. Insert a Width and Height
+              </h4>
+              <form class="form-inline">
+                <div class="form-floating mb-3 col-12 d-inline-flex">
+                  <input
+                    type=""
+                    class="form-control width-input"
+                    id="WidthInput"
+                    placeholder="Width"
+                    onchange="widthUpdater(this.value),totalPrice()"
+                  />
+                  <label for="floatingInput">Width in cm</label>
+                </div>
+              </form>
+              <form class="form-inline">
+                <div class="form-floating col-12 mb-3 d-inline-flex">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="HeightInput"
+                    placeholder="Height"
+                    onchange="heightUpdater(this.value),totalPrice()"
+                  />
+                  <label for="floatingInput">Height in cm</label>
+                </div>
+
+                <div class="row mb-5 align-items-center justify-content-center">
+                  <div class="text-white my-3">Or choose a paper size</div>
+                  <a
+                    class="btn btn-outline-info col-md-2 col-4 p-1 m-2 px-sm-2"
+                    id="a4Input"
+                    data-bs-toggle="popover"
+                    data-bs-content="8.268 inches x 11.693 inches"
+                    data-bs-placement="bottom"
+                    data-bs-trigger="focus hover"
+                    onclick="a4papersizeUpdater(),totalPrice()"
+                    >A4 (21.0cm x 29.7cm)</a
+                  >
+                  <a
+                    class="btn btn-outline-info col-md-2 col-4 p-1 m-2 px-sm-2"
+                    id="a3Input"
+                    data-bs-toggle="popover"
+                    data-bs-content="11.693 inches x 16.535 inches"
+                    data-bs-placement="bottom"
+                    data-bs-trigger="focus hover"
+                    onclick="a3papersizeUpdater(),totalPrice()"
+                    >A3 (29.7cm x 42.0cm)</a
+                  >
+                  <a
+                    class="btn btn-outline-info col-md-2 col-4 p-1 m-2 px-sm-2"
+                    id="a2Input"
+                    data-bs-toggle="popover"
+                    data-bs-content="16.535 inches x 23.386 inches"
+                    data-bs-placement="bottom"
+                    data-bs-trigger="focus hover"
+                    onclick="a2papersizeUpdater(),totalPrice()"
+                    >A2 (42.0cm x 59.4cm)</a
+                  >
+                  <a
+                    class="btn btn-outline-info col-md-2 col-4 p-1 m-2 px-sm-2"
+                    id="a1Input"
+                    data-bs-toggle="popover"
+                    data-bs-content="23.386 inches x 33.110 inches"
+                    data-bs-placement="bottom"
+                    data-bs-trigger="focus hover"
+                    onclick="a1papersizeUpdater(),totalPrice()"
+                    >A1 (59.4cm x 84.1cm)</a
+                  >
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Size Selector -->
+          <hr class="text-white mb-5" />
+          <!-- Custom Art Choice Cards -->
+          <h4 class="main-header-text fs-1 mb-3 fw-normal fw-bold text-light">
+            2. Choose how many subject
+          </h4>
+          <div
+            class="row row-cols-1 row-cols-md-2 g-4 justify-content-center align-items-center mb-4"
+          >
+            <div class="col-md-4">
+              <div
+                class="card text-center card-height one-subject"
+                id="card-height-override"
+              >
+                <img
+                  src="images/One_Dog.jpg"
+                  alt="One Subject"
+                  class="card-img-top masked-image-bottom"
+                />
+                <div class="card-body">
+                  <h5 class="card-title" id="sm-card-text">1 Subject</h5>
+                  <p class="card-text" id="xsm-xard-text">
+                    Just the one special subject perfect for special occations,
+                    moments and memories.
+                  </p>
+                  <a
+                    class="btn btn-primary desktop"
+                    id="oneSubject"
+                    onclick="oneSubjects(),totalPrice()"
+                    >I want one subject in my painting</a
+                  >
+                  <!-- <a
+                    class="btn btn-primary mobile"
+                    id="oneSubject"
+                    onclick="oneSubjects(),totalPrice()"
+                    >1 subject</a
+                  > -->
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div
+                class="card text-center card-height"
+                id="card-height-override"
+              >
+                <img
+                  src="images/Two_Dogs.jpg"
+                  alt="Two dogs"
+                  class="card-img-top masked-image-bottom"
+                />
+                <div class="card-body">
+                  <h5 class="card-title" id="sm-card-text">2 Subjects</h5>
+                  <p class="card-text" id="xsm-xard-text">
+                    Wanting two subjects in your masterpiece? We can use 2
+                    seperate images in one piece.
+                  </p>
+                  <a
+                    class="btn btn-primary desktop"
+                    id="twoSubjects"
+                    onclick="twoSubjects(),totalPrice()"
+                    data-bs-toggle="popover"
+                    data-bs-content="Minimum 20cm x 25cm (500cm2)"
+                    data-bs-placement="bottom"
+                    data-bs-trigger="focus hover"
+                    >Can I have 2 subjects please</a
+                  >
+                  <!-- <a
+                    class="btn btn-primary mobile"
+                    id="twoSubjects"
+                    onclick="twoSubjects(),totalPrice()"
+                    data-bs-toggle="popover"
+                    data-bs-content="Minimum 20cm x 25cm (500cm2)"
+                    data-bs-placement="bottom"
+                    data-bs-trigger="focus hover"
+                    >2 subjects</a
+                  > -->
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div
+                class="card text-center card-height"
+                id="card-height-override"
+              >
+                <img
+                  src="images/Three_Dogs.jpg"
+                  alt="One Subject"
+                  class="card-img-top masked-image-bottom"
+                />
+                <div class="card-body">
+                  <h5 class="card-title" id="sm-card-text">3 Subjects</h5>
+                  <p class="card-text" id="xsm-xard-text">
+                    What a big family you have. You can have Three subjects but
+                    it needs to be a bit bigger.
+                  </p>
+                  <a
+                    class="btn btn-primary desktop"
+                    id="threeSubjects"
+                    onclick="threeSubjects(),totalPrice()"
+                    data-bs-toggle="popover"
+                    data-bs-content="Minimum 30cm x 35cm (1050cm2)"
+                    data-bs-placement="bottom"
+                    data-bs-trigger="focus hover"
+                    >I have a big Family, 3 for me!</a
+                  >
+                  <!-- <a
+                    class="btn btn-primary mobile"
+                    id="threeSubjects"
+                    onclick="threeSubjects(),totalPrice()"
+                    data-bs-toggle="popover"
+                    data-bs-content="Minimum 30cm x 35cm (1050cm2)"
+                    data-bs-placement="bottom"
+                    data-bs-trigger="focus hover"
+                    >3 Subjects</a
+                  > -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="text-white mt-5 mb-5" />
+          <h4 class="main-header-text fs-1 mb-4 fw-normal fw-bold text-light">
+            3. Choose black and white or colour
+          </h4>
+          <div
+            class="row row-cols-1 row-cols-md-2 g-4 justify-content-center align-items-center"
+          >
+            <div class="col-md-6">
+              <div class="card text-center" id="card-height-override">
+                <img
+                  src="images/Black and White.jpg"
+                  alt="One Subject"
+                  class="card-img-top masked-image-bottom card-height"
+                />
+                <div class="card-body">
+                  <h5 class="card-title" id="sm-card-text">Black & White</h5>
+                  <p class="card-text" id="xsm-xard-text">
+                    Have a beautiful Monochromatic painting masterpiece created,
+                    bringing a certain elegance.
+                  </p>
+                  <a
+                    class="btn btn-primary black-white"
+                    id="black_white"
+                    onclick="blackWhite(),totalPrice()"
+                    >Monochrome please</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card text-center" id="card-height-override">
+                <img
+                  src="images/Full_Colour.jpg"
+                  alt="One Subject"
+                  class="card-img-top masked-image-bottom card-height"
+                />
+                <div class="card-body">
+                  <h5
+                    class="card-title align-items-center justify-content-center"
+                    id="sm-card-text"
+                  >
+                    Full Colour
+                  </h5>
+                  <p class="card-text" id="xsm-xard-text">
+                    Get a perfect colour rendition of your images, colour
+                    matched in its full glory.
+                  </p>
+                  <a
+                    class="btn btn-primary"
+                    id="colour"
+                    onclick="colour(),totalPrice()"
+                    >Colour, colour, colour!</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Custom Art Choice Cards -->
+
+          <div class="container" id="rowSpacer1"><div class="row"></div></div>
+          <hr class="text-white mt-5 mb-5" />
+          <!-- Finish Choice -->
+          <h4 class="main-header-text fs-1 mb-3 fw-normal fw-bold text-light">
+            4. Choose the finish
+          </h4>
+          <div class="Container text-center">
+            <div class="row align-items-center justify-content-center">
+              <div class="col-md-4">
+                <div
+                  class="card mb-4 rounded-3 shadow-sm card-pricing1-bg border-1 border-light"
+                >
+                  <div class="card-header border-light">
+                    <h4 class="my-0 fw-light text-light" id="sm-card-text">
+                      No Finish
+                    </h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title text-light">
+                      <!-- $0<small class="text-body-secondary fw-light">.00</small> -->
+                    </h1>
+                    <ul
+                      class="list-unstyled mt-3 mb-4 text-light"
+                      id="xsm-xard-text"
+                    >
+                      <li>Raw artwork</li>
+                      <li>No finish</li>
+                      <li>Suitable for framing</li>
+                      <li>Not water resistent</li>
+                    </ul>
+                    <button
+                      type="button"
+                      class="w-100 btn btn-outline-success"
+                      id="noFinish"
+                      onclick="noFinish(),totalPrice()"
+                    >
+                      No Finish
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div
+                  class="card mb-4 rounded-3 shadow-sm card-pricing2-bg border-3 border-success"
+                >
+                  <div class="card-header border-success border-3">
+                    <h4 class="my-0 fw-normal text-light" id="sm-card-text">
+                      Gloss Finish
+                    </h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title text-light">
+                      <!-- $0<small class="text-body-secondary fw-light">.00</small> -->
+                    </h1>
+                    <ul
+                      class="list-unstyled mt-3 mb-4 text-light"
+                      id="xsm-xard-text"
+                    >
+                      <li>5+ Layers of Clear Coat</li>
+                      <li>Perfect Glass like finish</li>
+                      <li>Water and dirt resistent</li>
+                      <li>Scratch resistent</li>
+                    </ul>
+                    <button
+                      type="button"
+                      class="w-100 btn btn-success"
+                      id="glossFinish"
+                      onclick="glossFinish(),totalPrice()"
+                    >
+                      Glass Like Finish
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div
+                  class="card mb-4 rounded-3 shadow-sm card-pricing3-bg border-4 border-success"
+                >
+                  <div class="card-header border-3 border-success bg-success">
+                    <h4 class="my-0 fw-bolder text-black" id="sm-card-text">
+                      Matte Finish
+                    </h4>
+                  </div>
+                  <div class="card-body">
+                    <h1
+                      class="card-title pricing-card-title fw-bolder text-light"
+                    >
+                      <!-- $0<small class="text-body-secondary fw-light">.00</small> -->
+                    </h1>
+                    <ul
+                      class="list-unstyled mt-3 mb-4 fw-bolder text-light"
+                      id="xsm-xard-text"
+                    >
+                      <li>Beautiful flawless finish</li>
+                      <li>5+ layers of clear coat</li>
+                      <li>Water and dirt resistent</li>
+                      <li>Scratch resistent</li>
+                    </ul>
+                    <button
+                      type="button"
+                      class="w-100 btn btn-success text-white border-3 border-light"
+                      id="matteFinish"
+                      onclick="matteFinish(),totalPrice()"
+                    >
+                      Premium Finish
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="container">
+              <div class="row align-items-center text-center gx-md-5">
+                <div class="col-md-12">
+                  <div class="home-header-text-holder pe-md-5">
+                    <h1
+                      class="main-header-text fs-1 mb-4 fw-normal mt-4 fw-bold text-light"
+                    >
+                      What Now?
+                    </h1>
+                    <h3 class="main-header-text fs-5 text-light">
+                      Click the 'Book my masterpiece now' button to the right
+                      and fill out the contact form. <br />
+                      <br />
+                      Once you have clicked send, this will go to Alex directly.
+                      <br /><br />
+                      He will contact you as soon as possible to discuss exactly
+                      what you want, when you want it for and where you need to
+                      send your images to, so Alex can start your masterpiece.
+                      <br /><br />
+                      <strong>Delivery</strong> is included in the price, if you
+                      are local enough Alex will drop the artwork off
+                      personally. If not he will send with a reputable courier
+                      company so you recieve your masterpiece in perfect
+                      condition.
+                    </h3>
+                  </div>
+                </div>
+                <div class="row align-items-center text-center gx-md-5">
+                  <div class="col-md-12">
+                    <div
+                      class="home-header-text-holder pe-md-5 text-center ms-4"
+                    >
+                      <h1
+                        class="main-header-text fs-1 mb-4 fw-normal fw-bold text-light mt-5"
+                      >
+                        Payments, Returns and Refunds
+                      </h1>
+                      <h3 class="main-header-text fs-5 text-light mb-5">
+                        50% of the Total for your Masterpiece is due before work
+                        starts. This is to secure your place and purchase raw
+                        materials. <br />
+                        <br />
+                        The final 50% is due once Masterpiece is complete and
+                        prior to delivery. <br />
+                        <br />
+                        We are so confident that you will love your masterpiece,
+                        we will fully refund you if you are not satisfied with
+                        the finished result. <br />
+                        <br />
+                        A full refund will only be given if masterpiece is
+                        returned undammaged and in re-sellable condition.
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Finish Choice -->
+        <!-- Totals Right Side -->
+
+        <div class="col-md-3 sticky-top align-self-baseline">
+          <div class="card text-center">
+            <div class="card-body m-2" id="quote">
+              <h5 class="card-title">Your Quote Total</h5>
+              <p class="card-text">
+                Below you will find your selctions and the total of your quote
+              </p>
+              <form class="row g-3 needs-validation text-start mb-3" novalidate>
+                <div class="col text-center">
+                  <label for="WidthTotal" class="form-label fw-bold"
+                    >Width</label
+                  >
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control disabled width-quote"
+                      id="WidthTotal"
+                      required=""
+                      placeholder="Width not entered"
+                      disabled
+                      onchange="totalPrice()"
+                    />
+                    <div class="input-group-append">
+                      <span class="input-group-text rounded-start-0">cm</span>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <form class="row g-3 needs-validation text-start mb-3" novalidate>
+                <div class="col text-center">
+                  <label for="HeightTotal" class="form-label fw-bold"
+                    >Height</label
+                  >
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control disabled"
+                      id="HeightTotal"
+                      required=""
+                      placeholder="Height not entered"
+                      disabled
+                      onchange="totalPrice()"
+                    />
+                    <div class="input-group-append">
+                      <span class="input-group-text rounded-start-0">cm</span>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <form class="row g-3 needs-validation text-start mb-3" novalidate>
+                <div class="col text-center">
+                  <label for="SubjectTotal" class="form-label fw-bold"
+                    >Subjects</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control disabled"
+                    id="SubjectTotal"
+                    required=""
+                    placeholder="Subjects not selected"
+                    disabled
+                    onchange="totalPrice()"
+                  />
+                </div>
+              </form>
+              <form class="row g-3 needs-validation text-start mb-3" novalidate>
+                <div class="col text-center">
+                  <label for="ColourTotal" class="form-label fw-bold"
+                    >Colour</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control disabled"
+                    id="ColourTotal"
+                    required=""
+                    placeholder="Colour not selected"
+                    disabled
+                    onchange="totalPrice()"
+                  />
+                </div>
+              </form>
+              <form class="row g-3 needs-validation text-start mb-3" novalidate>
+                <div class="col text-center">
+                  <label for="FinishTotal" class="form-label fw-bold"
+                    >Finish</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control disabled"
+                    id="FinishTotal"
+                    required=""
+                    placeholder="Finish not selected"
+                    disabled
+                    onchange="totalPrice()"
+                  />
+                </div>
+              </form>
+              <form class="row g-3 needs-validation text-start mb-3" novalidate>
+                <div class="col text-center">
+                  <label for="QuoteTotal" class="form-label fw-bolder"
+                    >Total</label
+                  >
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span
+                        class="input-group-text rounded-end-0 bg-success-subtle fw-bolder"
+                        >£</span
+                      >
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control disabled bg-success text-white"
+                      id="QuoteTotal"
+                      required=""
+                      placeholder="Please select all options"
+                      disabled
+                    />
+                  </div>
+                </div>
+              </form>
+              <a
+                href="fp_contact.html"
+                class="btn btn-primary mt-3"
+                type="submit"
+                >Book my masterpiece now</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Totals Right Side -->
+    <!-- Main Footer -->
+    <footer class="main-footer bg-transparent py-5 small">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-3 mb-4">
+            <div class="brand-icon mb-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="white"
+                class="bi bi-globe-europe-africa"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M3.668 2.501l-.288.646a.847.847 0 0 0 1.479.815l.245-.368a.81.81 0 0 1 1.034-.275.81.81 0 0 0 .724 0l.261-.13a1 1 0 0 1 .775-.05l.984.34q.118.04.243.054c.784.093.855.377.694.801-.155.41-.616.617-1.035.487l-.01-.003C8.274 4.663 7.748 4.5 6 4.5 4.8 4.5 3.5 5.62 3.5 7c0 1.96.826 2.166 1.696 2.382.46.115.935.233 1.304.618.449.467.393 1.181.339 1.877C6.755 12.96 6.674 14 8.5 14c1.75 0 3-3.5 3-4.5 0-.262.208-.468.444-.7.396-.392.87-.86.556-1.8-.097-.291-.396-.568-.641-.756-.174-.133-.207-.396-.052-.551a.33.33 0 0 1 .42-.042l1.085.724c.11.072.255.058.348-.035.15-.15.415-.083.489.117.16.43.445 1.05.849 1.357L15 8A7 7 0 1 1 3.668 2.501"
+                />
+              </svg>
+              <!-- <img src="images/" alt="" /> -->
+            </div>
+            <address class="small text-secondary">
+              Stockport,<br />
+              Manchester <br />
+              Cheshire, <br />
+              United Kingdom, <br />
+            </address>
+            <a class="link text-primary" href="fp_contact.html">Contact us</a>
+          </div>
+          <div class="col-md-2">
+            <h6 class="text-white">Main Menu</h6>
+            <ul class="list-unstyled small">
+              <li>
+                <a
+                  href="fp_home.html"
+                  class="text-decoration-none text-secondary"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="fp_gallery.html"
+                  class="text-decoration-none text-secondary"
+                  >Gallery</a
+                >
+              </li>
+              <li>
+                <a
+                  href="fp_pricing.html"
+                  class="text-decoration-none text-secondary"
+                  >Pricing</a
+                >
+              </li>
+              <li>
+                <a
+                  href="fp_about.html"
+                  class="text-decoration-none text-secondary"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="fp_contact.html"
+                  class="text-decoration-none text-secondary"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- <div class="col-md-2">
+            <h6>Misc</h6>
+            <ul class="list-unstyled small">
+              <li>
+                <a href="#" class="text-decoration-none text-secondary"
+                  >FAQ's</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-secondary"
+                  >Link Item</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-secondary"
+                  >Link Item</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-secondary"
+                  >Link Item</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-secondary"
+                  >Link Item</a
+                >
+              </li>
+            </ul>
+          </div> -->
+          <div class="col-md-5">
+            <h6>Follow us</h6>
+            <p>
+              <a
+                href="https://www.facebook.com/TAOGiving"
+                target="_blank"
+                class="btn btn-sm btn-primary rounded-pill px-md-3 d-inline-flex align-items-center justify-content-center mb-2"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-facebook me-md-2"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"
+                  />
+                </svg>
+                <span class="d-md-block d-none">Facebook</span>
+              </a>
+              <a
+                class="btn btn-sm btn-info rounded-pill px-md-3 d-inline-flex align-items-center mb-2 text-white"
+                data-bs-toggle="popover"
+                data-bs-content="Twitter account coming soon!"
+                data-bs-placement="bottom"
+                data-bs-trigger="focus hover"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="white"
+                  class="bi bi-twitter me-md-2"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
+                  />
+                </svg>
+                <span class="d-md-block d-none">Twitter</span>
+              </a>
+              <a
+                class="btn btn-sm btn-danger rounded-pill px-md-3 d-inline-flex align-items-center mb-2"
+                data-bs-toggle="popover"
+                data-bs-content="YouTube account coming soon!"
+                data-bs-placement="bottom"
+                data-bs-trigger="focus hover"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-youtube me-md-2"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"
+                  />
+                </svg>
+                <span class="d-md-block d-none">YouTube</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Main Footer -->
+
+    <!-- Copyright -->
+    <div class="copy py-4 small" style="background-color: black">
+      <div class="container">
+        <div class="row justify-content-center test-center text-white">
+          <p class="m-0 small">Copyright &copy; 2024. All Rights Reserved</p>
+        </div>
+      </div>
+    </div>
+    <!-- Copyright -->
+
+    <!-- Mobile Padding -->
+    <div
+      class="mobile-padding pt-5 pb-4 d-md-none"
+      style="background-color: black"
+    ></div>
+    <!-- Mobile Padding -->
+
+    <!-- Sticky Footer -->
+    <!-- <div
+      class="d-block d-flex p-3 fixed-bottom justify-content-center blur-filter shadow-lg"
+    >
+      <a
+        href="#"
+        class="rounded-pill btn btn-sm btn-dark small px-3 fw-bold justify-content-center align-items-center d-inline-flex"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          class="bi bi-bag-heart-fill me-1 mb-1"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5ZM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1Zm0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"
+          />
+        </svg>
+        Available Original Artwork
+      </a>
+    </div> -->
+    <!-- Sticky Footer -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="fp_script.js"></script>
+    <script>
+      const popoverTriggerList = document.querySelectorAll(
+        '[data-bs-toggle="popover"]'
+      );
+      const popoverList = [...popoverTriggerList].map(
+        (popoverTriggerEl) => new bootstrap.Popover(popoverTriggerEl)
+      );
+    </script>
+  </body>
+</html>
