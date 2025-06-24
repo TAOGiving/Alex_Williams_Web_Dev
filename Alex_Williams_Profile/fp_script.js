@@ -3385,3 +3385,9 @@ function bodyContent() {
 
 updater();
 //*************************************************************************************************/
+
+function demoAlert() {
+  alert(
+    "Thank you for your interest in the Art of Giving. This is a demo site"
+  );
+}
