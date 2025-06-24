@@ -142,7 +142,7 @@ body {
   height: 100vh;
   /* overflow: hidden; */
   position: relative;
-  background-image: url(images/Leopard.jpg);
+  background-image: url(fp_images/images/Leopard.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -155,16 +155,16 @@ body {
 @keyframes changeBackground {
   0%,
   100% {
-    background-image: url(images/Leopard.jpg);
+    background-image: url(fp_images/images/Leopard.jpg);
   }
   25% {
-    background-image: url(images/Guy\ Martin.jpg);
+    background-image: url(fp_images/images/Guy\ Martin.jpg);
   }
   50% {
-    background-image: url(images/Parrot.jpg);
+    background-image: url(fp_images/images/Parrot.jpg);
   }
   75% {
-    background-image: url(images/LOTR.jpg);
+    background-image: url(fp_images/images/LOTR.jpg);
   }
 }
 
@@ -251,7 +251,7 @@ img {
 
 .feature-item1 {
   position: relative;
-  background-image: url(images/Leopard2.jpg);
+  background-image: url(fp_images/images/Leopard2.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -281,7 +281,7 @@ img {
 
 .feature-item2 {
   position: relative;
-  background-image: url(images/Parrot2.jpg);
+  background-image: url(fp_images/images/Parrot2.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -307,7 +307,7 @@ img {
 
 .feature-item3 {
   position: relative;
-  background-image: url(images/Guy\ Martin2.jpg);
+  background-image: url(fp_images/images/Guy\ Martin2.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
