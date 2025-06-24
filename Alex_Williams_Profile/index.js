@@ -1,8 +1,9 @@
 //*******************************************/
 //Main image updater for gallery and home page
 //*******************************************/
-function updateMainImage(imageSrc) {
+function updateMainImage(imageSrc, imageLink) {
   const displayedImage = document.getElementById("displayed-image");
+  const mainImageLink = document.getElementById("main-image-link");
 
   // Add the hidden class to fade out the image
   displayedImage.classList.add("hiddenfade");
@@ -10,6 +11,7 @@ function updateMainImage(imageSrc) {
   // Use a timeout to wait for the fade-out transition to finish
   setTimeout(() => {
     displayedImage.src = imageSrc; // Change the image source
+    mainImageLink.href = imageLink; // Update the link to the new image
     displayedImage.classList.remove("hiddenfade"); // Fade it in again
   }, 500); // This should match the transition duration in CSS
 }
