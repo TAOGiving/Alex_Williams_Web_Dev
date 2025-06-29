@@ -155,6 +155,12 @@ body {
   font-family: "Montserrat", serif;
 }
 
+@media (max-width: 991px) {
+  .lead {
+    font-size: 0.75rem !important;
+  }
+}
+
 .hidden {
   display: none !important;
 }
@@ -167,6 +173,13 @@ body {
   background-color: var(--primary-color) !important;
   color: white;
 }
+
+@media (max-width: 991px) {
+  .primary_accent_btn {
+    font-size: 0.75rem !important;
+  }
+}
+
 .primary_accent_btn:hover {
   background-color: var(--secondary-color) !important;
   color: white;
@@ -179,6 +192,12 @@ body {
 .secondary_accent_btn {
   background-color: var(--secondary-color) !important;
   color: white;
+}
+
+@media (max-width: 991px) {
+  .btn-outline-secondary {
+    font-size: 0.75rem !important;
+  }
 }
 
 .secondary_accent_btn:hover {
@@ -282,6 +301,13 @@ body {
   height: 75vh;
   z-index: 1;
   /* cursor: pointer; */
+}
+
+@media (max-width: 991px) {
+  .foreground_image {
+    width: auto;
+    height: 50vh !important;
+  }
 }
 
 /* .background_shape {
