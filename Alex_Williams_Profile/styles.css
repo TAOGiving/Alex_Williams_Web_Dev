@@ -325,7 +325,7 @@ body {
 
 .containerProfileImage img {
   display: block;
-  width: 75%;
+  width: auto;
   height: 75vh;
 }
 .overlay {
@@ -525,6 +525,14 @@ video {
 .small_Logo {
   width: auto;
   height: 30px;
+}
+
+@media (max-width: 481px) {
+  .small_Logo {
+    width: auto;
+    height: 30px;
+    margin-left: -40px;
+  }
 }
 
 .badge {
