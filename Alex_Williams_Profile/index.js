@@ -24,7 +24,7 @@ function updateMainImage2(imageSrc) {
 //Update the specialists in Nav Bar
 //********************************/
 
-const texts = ["Father", "Frontend Developer", "Artist"];
+const texts = ["Father", "Frontend Dev", "Artist"];
 let currentIndex = 0;
 
 function changeText() {
