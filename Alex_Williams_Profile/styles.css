@@ -519,12 +519,12 @@ iframe {
 
 video {
   width: 100vw;
-  height: 75vh;
+  height: 90vh;
 }
 
 #FP_Video {
-  width: 95vw;
-  height: 75vh;
+  width: 100vw;
+  height: 90vh;
 }
 
 @media (min-width: 320px) {
