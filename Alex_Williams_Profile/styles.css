@@ -522,6 +522,19 @@ video {
   height: 75vh;
 }
 
+#FP_Video {
+  width: 95vw;
+  height: 75vh;
+}
+
+@media (min-width: 320px) {
+  /* smartphones, iPhone, portrait 480x320 phones */
+  #FP_Video {
+    width: 90vw;
+    max-height: 50vh;
+  }
+}
+
 .small_Logo {
   width: auto;
   height: 30px;
