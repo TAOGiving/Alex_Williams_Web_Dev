@@ -517,17 +517,16 @@ iframe {
   top: 10vh;
 }
 
-video {
+#Bio_video {
   width: 100vw;
   height: 90vh;
 }
 
 #FP_Video {
-  width: 100vw;
-  height: 90vh;
+  width: 90%;
+  height: auto;
 }
-
-@media (min-width: 320px) {
+@media (max-width: 320px) {
   /* smartphones, iPhone, portrait 480x320 phones */
   #FP_Video {
     width: 90vw;
