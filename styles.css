@@ -543,7 +543,7 @@ iframe {
   .small_Logo {
     width: auto;
     height: 30px;
-    margin-left: -40px;
+    /* margin-left: -40px; */
   }
 }
 
