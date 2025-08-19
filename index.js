@@ -113,6 +113,59 @@ document.querySelectorAll(".nav-link").forEach((item) => {
 //     }
 //   });
 // Contact and reCAPTCHA setup
+// document
+//   .getElementById("contactForm")
+//   .addEventListener("submit", async function (e) {
+//     e.preventDefault();
+
+//     const form = e.target;
+
+//     // Honeypot check
+//     if (form.querySelector('[name="website"]').value) {
+//       console.log("Bot detected!");
+//       return;
+//     }
+
+//     // reCAPTCHA validation
+//     const recaptchaResponse = grecaptcha.getResponse();
+//     if (!recaptchaResponse) {
+//       alert("Please complete the reCAPTCHA.");
+//       return;
+//     }
+
+//     const formData = new FormData(form);
+//     formData.append("g-recaptcha-response", recaptchaResponse); // include token
+
+//     try {
+//       const response = await fetch(form.action, {
+//         method: "POST",
+//         body: formData,
+//         headers: { Accept: "application/json" },
+//         mode: "cors",
+//         credentials: "omit", // avoid Safari cross-site cookie issues
+//       });
+
+//       if (response.ok) {
+//         form.reset();
+//         grecaptcha.reset(); // reset reCAPTCHA
+//         document.getElementById("formResponse").classList.remove("hidden");
+//       } else {
+//         const data = await response.json().catch(() => ({}));
+//         if (data.error && data.error.includes("recaptcha")) {
+//           alert("reCAPTCHA failed. Please try again.");
+//           grecaptcha.reset();
+//         } else {
+//           alert(data.error || "Something went wrong. Try again.");
+//         }
+//       }
+//     } catch (error) {
+//       console.warn("Fetch failed, falling back to normal form submit:", error);
+//       // Fallback for Safari: submit normally
+//       form.submit();
+//     }
+//   });
+
+// New Code for Safari Below
 document
   .getElementById("contactForm")
   .addEventListener("submit", async function (e) {
@@ -142,7 +195,7 @@ document
         body: formData,
         headers: { Accept: "application/json" },
         mode: "cors",
-        credentials: "omit", // avoid Safari cross-site cookie issues
+        credentials: "include", // Use 'include' for Safari compatibility
       });
 
       if (response.ok) {
@@ -160,6 +213,7 @@ document
       }
     } catch (error) {
       console.warn("Fetch failed, falling back to normal form submit:", error);
+
       // Fallback for Safari: submit normally
       form.submit();
     }
