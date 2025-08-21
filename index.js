@@ -109,7 +109,7 @@ document
     }
 
     const formData = new FormData(form);
-    formData.append("g-recaptcha-response", recaptchaResponse); // include it
+    formData.append("g-recaptcha-response", recaptchaResponse);
 
     try {
       const response = await fetch(form.action, {
@@ -124,6 +124,7 @@ document
         form.reset();
         grecaptcha.reset(); // reset reCAPTCHA
         document.getElementById("formResponse").classList.remove("hidden");
+        sendCaptcha(); // Call the function to send the reCAPTCHA token
       } else {
         const data = await response.json();
         alert(data.error || "Something went wrong. Try again.");
@@ -132,6 +133,27 @@ document
       alert("Network error. Please try again.");
     }
   });
+
+function sendCaptcha() {
+  grecaptcha.enterprise
+    .execute("6LfHWaQrAAAAAPPWiiE4IYyQFK2VwhW0DVufD8oC", {
+      action: "your-action-name",
+    })
+    .then(function (token) {
+      // Send token to your backend for verification
+      fetch("/verify-captcha", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ token: token, action: "your-action-name" }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Score:", data.score);
+        });
+    });
+}
 // Contact and reCAPTCHA setup
 // document
 //   .getElementById("contactForm")
