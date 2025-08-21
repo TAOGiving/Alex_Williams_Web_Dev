@@ -85,53 +85,9 @@ updateImageSource();
 
 // Add event listener to handle resizing
 window.addEventListener("resize", updateImageSource);
+
 //Form and reCAPTCHA handling//
 //Contact and recapture set up
-// document
-//   .getElementById("contactForm")
-//   .addEventListener("submit", async function (e) {
-//     e.preventDefault();
-
-//     const form = e.target;
-
-//     // Honeypot check
-//     if (form.querySelector('[name="website"]').value) {
-//       console.log("Bot detected!");
-//       return;
-//     }
-
-//     // reCAPTCHA validation
-//     const recaptchaResponse = grecaptcha.getResponse();
-//     if (!recaptchaResponse) {
-//       alert("Please complete the reCAPTCHA.");
-//       return;
-//     }
-
-//     const formData = new FormData(form);
-//     formData.append("g-recaptcha-response", recaptchaResponse); // include it
-
-//     try {
-//       const response = await fetch(form.action, {
-//         method: "POST",
-//         body: formData,
-//         headers: {
-//           Accept: "application/json",
-//         },
-//       });
-
-//       if (response.ok) {
-//         form.reset();
-//         grecaptcha.reset(); // reset reCAPTCHA
-//         document.getElementById("formResponse").classList.remove("hidden");
-//       } else {
-//         const data = await response.json();
-//         alert(data.error || "Something went wrong. Try again.");
-//       }
-//     } catch (error) {
-//       alert("Network error. Please try again.");
-//     }
-//   });
-// Contact and reCAPTCHA setup
 document
   .getElementById("contactForm")
   .addEventListener("submit", async function (e) {
@@ -153,15 +109,15 @@ document
     }
 
     const formData = new FormData(form);
-    formData.append("g-recaptcha-response", recaptchaResponse); // include token
+    formData.append("g-recaptcha-response", recaptchaResponse); // include it
 
     try {
       const response = await fetch(form.action, {
         method: "POST",
         body: formData,
-        headers: { Accept: "application/json" },
-        mode: "cors",
-        credentials: "omit", // avoid Safari cross-site cookie issues
+        headers: {
+          Accept: "application/json",
+        },
       });
 
       if (response.ok) {
@@ -169,17 +125,62 @@ document
         grecaptcha.reset(); // reset reCAPTCHA
         document.getElementById("formResponse").classList.remove("hidden");
       } else {
-        const data = await response.json().catch(() => ({}));
-        if (data.error && data.error.includes("recaptcha")) {
-          alert("reCAPTCHA failed. Please try again.");
-          grecaptcha.reset();
-        } else {
-          alert(data.error || "Something went wrong. Try again.");
-        }
+        const data = await response.json();
+        alert(data.error || "Something went wrong. Try again.");
       }
     } catch (error) {
-      console.warn("Fetch failed, falling back to normal form submit:", error);
-      // Fallback for Safari: submit normally
-      form.submit();
+      alert("Network error. Please try again.");
     }
   });
+// Contact and reCAPTCHA setup
+// document
+//   .getElementById("contactForm")
+//   .addEventListener("submit", async function (e) {
+//     e.preventDefault();
+
+//     const form = e.target;
+
+//     // Honeypot check
+//     if (form.querySelector('[name="website"]').value) {
+//       console.log("Bot detected!");
+//       return;
+//     }
+
+//     // reCAPTCHA validation
+//     const recaptchaResponse = grecaptcha.getResponse();
+//     if (!recaptchaResponse) {
+//       alert("Please complete the reCAPTCHA.");
+//       return;
+//     }
+
+//     const formData = new FormData(form);
+//     formData.append("g-recaptcha-response", recaptchaResponse); // include token
+
+//     try {
+//       const response = await fetch(form.action, {
+//         method: "POST",
+//         body: formData,
+//         headers: { Accept: "application/json" },
+//         mode: "cors",
+//         credentials: "omit", // avoid Safari cross-site cookie issues
+//       });
+
+//       if (response.ok) {
+//         form.reset();
+//         grecaptcha.reset(); // reset reCAPTCHA
+//         document.getElementById("formResponse").classList.remove("hidden");
+//       } else {
+//         const data = await response.json().catch(() => ({}));
+//         if (data.error && data.error.includes("recaptcha")) {
+//           alert("reCAPTCHA failed. Please try again.");
+//           grecaptcha.reset();
+//         } else {
+//           alert(data.error || "Something went wrong. Try again.");
+//         }
+//       }
+//     } catch (error) {
+//       console.warn("Fetch failed, falling back to normal form submit:", error);
+//       // Fallback for Safari: submit normally
+//       form.submit();
+//     }
+//   });
