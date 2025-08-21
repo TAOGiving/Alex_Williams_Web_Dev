@@ -1,0 +1,18 @@
+{
+  "name": "alex_williams_web_dev",
+  "version": "1.0.0",
+  "description": "Personal Website CV",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/recaptcha-enterprise": "^6.3.0"
+  }
+}
