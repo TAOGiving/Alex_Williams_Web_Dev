@@ -137,7 +137,7 @@ document
 function sendCaptcha() {
   grecaptcha.enterprise
     .execute("6LfHWaQrAAAAAPPWiiE4IYyQFK2VwhW0DVufD8oC", {
-      action: "your-action-name",
+      action: "submit",
     })
     .then(function (token) {
       // Send token to your backend for verification
@@ -146,7 +146,7 @@ function sendCaptcha() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ token: token, action: "your-action-name" }),
+        body: JSON.stringify({ token: token, action: "submit" }),
       })
         .then((response) => response.json())
         .then((data) => {
