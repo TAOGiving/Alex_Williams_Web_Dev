@@ -17,5 +17,10 @@
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "node-fetch": "^3.3.2"
+  },
+  "event": {
+    "token": "TOKEN",
+    "expectedAction": "USER_ACTION",
+    "siteKey": "6LfHWaQrAAAAAPPWiiE4IYyQFK2VwhW0DVufD8oC"
   }
 }
