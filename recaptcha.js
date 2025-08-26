@@ -1,64 +1,57 @@
+require("dotenv").config();
+const express = require("express");
 const {
   RecaptchaEnterpriseServiceClient,
 } = require("@google-cloud/recaptcha-enterprise");
 
-/**
- * Create an assessment to analyze the risk of a UI action.
- *
- * projectID: Your Google Cloud Project ID.
- * recaptchaSiteKey: The reCAPTCHA key associated with the site/app
- * token: The generated token obtained from the client.
- * recaptchaAction: Action name corresponding to the token.
- */
-async function createAssessment({
-  // TODO: Replace the token and reCAPTCHA action variables before running the sample.
-  projectID = "alexwilliamsdev-1755030894052",
-  recaptchaKey = "6LfHWaQrAAAAAPPWiiE4IYyQFK2VwhW0DVufD8oC",
-  token = "action-token",
-  recaptchaAction = "action-name",
-}) {
-  // Create the reCAPTCHA client.
-  // TODO: Cache the client generation code (recommended) or call client.close() before exiting the method.
-  const client = new RecaptchaEnterpriseServiceClient();
-  const projectPath = client.projectPath(projectID);
+const app = express();
+app.use(express.urlencoded({ extended: true })); // parse form fields
 
-  // Build the assessment request.
+const client = new RecaptchaEnterpriseServiceClient();
+const projectId = process.env.GCLOUD_PROJECT_ID;
+const siteKey = process.env.RECAPTCHA_SITE_KEY;
+
+async function verifyRecaptcha(token) {
+  const parent = client.projectPath(projectId);
+
   const request = {
+    parent,
     assessment: {
       event: {
-        token: token,
-        siteKey: recaptchaKey,
+        token,
+        siteKey,
       },
     },
-    parent: projectPath,
   };
 
-  const [response] = await client.createAssessment(request);
+  const [assessment] = await client.createAssessment(request);
 
-  // Check if the token is valid.
-  if (!response.tokenProperties.valid) {
-    console.log(
-      `The CreateAssessment call failed because the token was: ${response.tokenProperties.invalidReason}`
-    );
-    return null;
+  if (!assessment.tokenProperties?.valid) {
+    return { ok: false, reason: assessment.tokenProperties?.invalidReason };
   }
 
-  // Check if the expected action was executed.
-  // The `action` property is set by user client in the grecaptcha.enterprise.execute() method.
-  if (response.tokenProperties.action === recaptchaAction) {
-    // Get the risk score and the reason(s).
-    // For more information on interpreting the assessment, see:
-    // https://cloud.google.com/recaptcha-enterprise/docs/interpret-assessment
-    console.log(`The reCAPTCHA score is: ${response.riskAnalysis.score}`);
-    response.riskAnalysis.reasons.forEach((reason) => {
-      console.log(reason);
-    });
-
-    return response.riskAnalysis.score;
-  } else {
-    console.log(
-      "The action attribute in your reCAPTCHA tag does not match the action you are expecting to score"
-    );
-    return null;
-  }
+  return { ok: true };
 }
+
+app.post("/submit", async (req, res) => {
+  try {
+    const token = req.body["g-recaptcha-response"]; // checkbox token
+    if (!token) {
+      return res.status(400).send("Missing captcha token");
+    }
+
+    const result = await verifyRecaptcha(token);
+
+    if (!result.ok) {
+      return res.status(400).send("Captcha failed: " + result.reason);
+    }
+
+    // ✅ Captcha passed → process form here
+    res.send("Form submitted successfully!");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error verifying captcha");
+  }
+});
+
+app.listen(3000, () => console.log("Server running at http://localhost:3000"));
