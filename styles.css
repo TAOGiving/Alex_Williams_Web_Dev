@@ -414,6 +414,12 @@ body {
   height: 80vh;
 }
 
+@media (max-width: 500px) {
+  .video_container {
+    flex: 0 0 90vw;
+    aspect-ratio: 5 / 3;
+  }
+}
 iframe {
   height: 90%;
 }
