@@ -1293,57 +1293,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script>
-      document.getElementById("WidthTotal").value = widthValue;
-      document.getElementById("HeightTotal").value = heightValue;
-      document.getElementById("SubjectTotal").value = subjectValue;
-      document.getElementById("ColourTotal").value = colourValue;
-      document.getElementById("FinishTotal").value = finishValue;
-      document.getElementById("QuoteTotal").value = totalValue;
 
-      function Send() {
-        var name = $("#name").val();
-        var email = $("#email").val();
-        var comment = $("#comment").val();
-        var width = $("#WidthTotal").val();
-        var height = $("#HeightTotal").val();
-        var subject = $("#SubjectTotal").val();
-        var colour = $("#ColourTotal").val();
-        var finish = $("#FinishTotal").val();
-        var quote = $("#QuoteTotal").val();
-
-        if (name == "") {
-          alert("Enter name");
-
-          return;
-        }
-
-        if (email == "") {
-          alert("Enter email");
-
-          return;
-        }
-
-        $.post(
-          "/contact.html",
-          {
-            name: name,
-            email: email,
-            comment: comment,
-            width: width,
-            height: height,
-            subject: subject,
-            colour: colour,
-            finish: finish,
-            quote: quote,
-          },
-          function (d) {
-            alert(
-              "Your messages has been sent, Thank you very much. We will be in contact soon"
-            );
-          }
-        );
-      }
-    </script>
   </body>
 </html>
