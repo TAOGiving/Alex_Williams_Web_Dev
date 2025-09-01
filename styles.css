@@ -410,15 +410,10 @@ body {
 /**********/
 
 .video_container {
-  width: auto;
-  height: 80vh;
+  width: 90vw;
+  height: auto;
 }
 
-@media (max-width: 500px) {
-  .video_container {
-    aspect-ratio: 5 / 3;
-  }
-}
 iframe {
   height: 90%;
 }
