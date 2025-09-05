@@ -229,6 +229,13 @@ body {
   cursor: inherit;
 }
 
+.no-split {
+  white-space: normal !important  ;
+  word-break: normal !important ;
+  overflow-wrap: normal !important ;
+  hyphens: none !important ;
+}
+
 .text_accent {
   color: var(--text-color) !important;
 }
