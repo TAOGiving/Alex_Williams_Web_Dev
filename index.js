@@ -219,3 +219,27 @@ async function createAssessment({
     return null;
   }
 }
+
+//***********************************************/
+//**************** GSAP Animations  *************/
+//***********************************************/
+
+gsap.registerPlugin(SplitText); // Register the SplitText plugin
+
+let split, animation;
+
+// Initialize SplitText
+split = new SplitText("#text_animation", { type: "chars" });
+
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(SplitText);
+  animation && animation.revert(); // Revert any existing animation
+  animation = gsap.from(split.chars, {
+    x: 150,
+    opacity: 0,
+    duration: 0.7,
+    ease: "power4",
+    stagger: 0.04,
+  });
+  console.log("GSAP Animation Initialized");
+});
