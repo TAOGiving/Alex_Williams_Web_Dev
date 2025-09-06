@@ -13,13 +13,84 @@ document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(SplitText);
   animation && animation.revert(); // Revert any existing animation
   animation = gsap.from(split.chars, {
+    delay: 3.5,
     x: 150,
     opacity: 0,
-    duration: 0.7,
+    duration: 0.4,
     ease: "power4",
-    stagger: 0.04,
+    stagger: 0.02,
   });
   console.log("GSAP Animation Initialized");
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Timeline for smooth sequencing
+  const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+  // Navbar: logo/profile + links
+  tl.from(".navbar .logo", {
+    y: -30,
+    opacity: 0,
+    duration: 0.4,
+  }).from(
+    ".navbar a",
+    {
+      y: -20,
+      opacity: 0,
+      stagger: 0.2,
+      duration: 0.75,
+    },
+    "-=0.3"
+  );
+
+  // Hero: heading + subheading
+  tl.from("#alexProfileImage", {
+    y: 40,
+    opacity: 0,
+    duration: 0.5,
+  })
+    .from(".hero h5", {
+      y: 40,
+      opacity: 0,
+      duration: 0.5,
+    })
+    .from(".hero h1", {
+      y: 40,
+      opacity: 0,
+      duration: 0.5,
+    })
+    .from(
+      ".hero h2",
+      {
+        y: 30,
+        opacity: 0,
+        duration: 0.5,
+      },
+      "-=0.4"
+    );
+
+  // Hero intro paragraph
+  // tl.from(
+  //   ".hero p",
+  //   {
+  //     y: 20,
+  //     opacity: 0,
+  //     duration: 0.6,
+  //   },
+  //   "-=0.3"
+  // );
+
+  // CTA buttons (bounce in a bit)
+  tl.from(
+    ".hero .cta-btn",
+    {
+      // scale: 0.8,
+      opacity: 0,
+      stagger: 0.15,
+      duration: 0.5,
+    },
+    "-=0.2"
+  );
 });
 
 //*******************************************/
