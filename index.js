@@ -155,6 +155,55 @@ tl.to("#alexProfileImage", {
     ease: "elastic.out(1, 0.5)",
   });
 
+// For each SVG icon, animate the stroke
+
+document.querySelectorAll(".about-icon path").forEach((path) => {
+  const length = path.getTotalLength();
+  gsap.set(path, {
+    strokeDasharray: length,
+    strokeDashoffset: length,
+  });
+
+  gsap.to(path, {
+    strokeDashoffset: 0,
+    duration: 1.5,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: path,
+      start: "top 85%",
+      toggleActions: "play none none reverse",
+    },
+  });
+});
+
+// Select all paragraphs in the "Me, myself and I" section
+document.querySelectorAll(".about-text p").forEach((p, i) => {
+  gsap.from(p, {
+    x: i % 2 === 0 ? -50 : 50, // alternate sides
+    opacity: 0,
+    duration: 0.8,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: p,
+      start: "top 85%",
+      toggleActions: "play none none reverse",
+    },
+  });
+});
+
+gsap.from(".about-heading", {
+  opacity: 0,
+  y: 30,
+  scale: 0.95,
+  duration: 1,
+  ease: "power3.out",
+  scrollTrigger: {
+    trigger: ".about-heading",
+    start: "top 90%",
+    toggleActions: "play none none reverse",
+  },
+});
+
 //*******************************************/
 //Main image updater for gallery and home page
 //*******************************************/
