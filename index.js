@@ -44,16 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   // Hero: heading + subheading
-  tl.from("#alexProfileImage", {
+  tl.from(".hero h5", {
     y: 40,
     opacity: 0,
     duration: 0.5,
   })
-    .from(".hero h5", {
-      y: 40,
-      opacity: 0,
-      duration: 0.5,
-    })
     .from(".hero h1", {
       y: 40,
       opacity: 0,
@@ -92,6 +87,73 @@ document.addEventListener("DOMContentLoaded", () => {
     "-=0.2"
   );
 });
+// Entrance effect (on load)
+// gsap.from("#alexProfileImage", {
+//   // filter: "grayscale(100%) contrast(200%)",
+//   scale: 0.8,
+//   opacity: 0,
+//   duration: 1.5,
+//   ease: "power3.out",
+// });
+
+// // Subtle hover effect (give it attitude)
+document
+  .querySelector("#alexProfileImage")
+  .addEventListener("mouseenter", () => {
+    gsap.to("#alexProfileImage", {
+      rotation: -5,
+      scale: 1.05,
+      duration: 0.4,
+      ease: "back.out(2)",
+    });
+  });
+document
+  .querySelector("#alexProfileImage")
+  .addEventListener("mouseleave", () => {
+    gsap.to("#alexProfileImage", {
+      rotation: 0,
+      scale: 1,
+      duration: 0.4,
+      ease: "back.in(2)",
+    });
+  });
+
+// gsap.to("#alexProfileImage", {
+//   y: -15,
+//   rotation: -2,
+//   duration: 3,
+//   ease: "sine.inOut",
+//   yoyo: true,
+//   repeat: -1,
+// });
+
+// Start: hidden behind a circular "paintbrush" mask
+gsap.set("#alexProfileImage", {
+  clipPath: "circle(0% at 50% 50%)", // fully masked
+  filter: "saturate(0) brightness(1.2)", // washed-out, unpainted
+  scale: 0.95,
+});
+
+// Timeline for the artistic paint-in
+const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+
+tl.to("#alexProfileImage", {
+  clipPath: "circle(140% at 50% 50%)", // mask expands outward like brush spreading
+  duration: 3,
+})
+  .to(
+    "#alexProfileImage",
+    {
+      filter: "saturate(1) brightness(1)", // colors bloom in
+      duration: 1,
+    },
+    "-=1.0"
+  )
+  .to("#alexProfileImage", {
+    scale: 1, // subtle final settle
+    duration: 0.6,
+    ease: "elastic.out(1, 0.5)",
+  });
 
 //*******************************************/
 //Main image updater for gallery and home page
