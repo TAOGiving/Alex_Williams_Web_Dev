@@ -80,8 +80,9 @@ nav {
 }
 
 .nav-link_active {
-  color: var(--text-color) !important;
+  color: var(--secondary-color) !important;
   border-bottom: 2px solid transparent;
+  font-weight: 600;
 }
 
 #changespecialist {

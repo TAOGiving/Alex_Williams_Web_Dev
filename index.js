@@ -200,6 +200,18 @@ gsap.utils.toArray(".about-icon").forEach((icon) => {
   });
 });
 
+gsap.from(".about-video", {
+  scale: 1.2,
+  opacity: 0,
+  filter: "blur(20px)",
+  duration: 1.2,
+  ease: "power3.out",
+  scrollTrigger: {
+    trigger: ".about-video",
+    start: "top 85%",
+  },
+});
+
 //*******************************************/
 //Main image updater for gallery and home page
 //*******************************************/
@@ -251,7 +263,6 @@ setInterval(changeText, 4000); // Change text every 2 seconds (1s fade out + 1s 
 
 document.querySelectorAll(".nav-link").forEach((item) => {
   const fullText = item.getAttribute("data-full");
-  const shortText = document.getElementsByClassName("short_text");
 
   //Remove Short text
   //   shortText.classList.add("hidden");
