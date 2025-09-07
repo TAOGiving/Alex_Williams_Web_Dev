@@ -2,7 +2,7 @@
 //**************** GSAP Animations  *************/
 //***********************************************/
 
-gsap.registerPlugin(SplitText); // Register the SplitText plugin
+gsap.registerPlugin(ScrollTrigger, SplitText); // Register the SplitText plugin
 
 let split, animation;
 
@@ -80,8 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
     ".hero .cta-btn",
     {
       // scale: 0.8,
+      delay: 7.5,
       opacity: 0,
-      stagger: 0.15,
+      stagger: 0.5,
       duration: 0.5,
     },
     "-=0.2"
@@ -157,25 +158,6 @@ tl.to("#alexProfileImage", {
 
 // For each SVG icon, animate the stroke
 
-document.querySelectorAll(".about-icon path").forEach((path) => {
-  const length = path.getTotalLength();
-  gsap.set(path, {
-    strokeDasharray: length,
-    strokeDashoffset: length,
-  });
-
-  gsap.to(path, {
-    strokeDashoffset: 0,
-    duration: 1.5,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: path,
-      start: "top 85%",
-      toggleActions: "play none none reverse",
-    },
-  });
-});
-
 // Select all paragraphs in the "Me, myself and I" section
 document.querySelectorAll(".about-text p").forEach((p, i) => {
   gsap.from(p, {
@@ -202,6 +184,20 @@ gsap.from(".about-heading", {
     start: "top 90%",
     toggleActions: "play none none reverse",
   },
+});
+
+// Bootstrap Icons (mask reveal instead of stroke-draw)
+gsap.utils.toArray(".about-icon").forEach((icon) => {
+  gsap.from(icon, {
+    clipPath: "inset(0 100% 0 0)", // wipe from right to left
+    duration: 3,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: icon,
+      start: "top 85%",
+      toggleActions: "play none none reverse",
+    },
+  });
 });
 
 //*******************************************/
