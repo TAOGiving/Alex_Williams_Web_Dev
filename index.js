@@ -1,3 +1,23 @@
+//Animation for Nav Links
+
+document.querySelectorAll(".nav-link").forEach((item) => {
+  const fullText = item.getAttribute("data-full");
+
+  //Remove Short text
+  //   shortText.classList.add("hidden");
+
+  // Create a span element with the full text
+  const span = document.createElement("span");
+  span.classList.add("mt-5");
+  span.classList.add("d-inline-block");
+
+  span.textContent = `${fullText}`;
+
+  //Add the span element after short text
+
+  item.appendChild(span);
+});
+
 //***********************************************/
 //**************** GSAP Animations  *************/
 //***********************************************/
@@ -258,26 +278,6 @@ function changeText() {
 }
 
 setInterval(changeText, 4000); // Change text every 2 seconds (1s fade out + 1s display)
-
-//Animation for Nav Links
-
-document.querySelectorAll(".nav-link").forEach((item) => {
-  const fullText = item.getAttribute("data-full");
-
-  //Remove Short text
-  //   shortText.classList.add("hidden");
-
-  // Create a span element with the full text
-  const span = document.createElement("span");
-  span.classList.add("mt-5");
-  span.classList.add("d-inline-block");
-
-  span.textContent = `${fullText}`;
-
-  //Add the span element after short text
-
-  item.appendChild(span);
-});
 
 //*******************************************/
 //***** Update main image on index page *****/
