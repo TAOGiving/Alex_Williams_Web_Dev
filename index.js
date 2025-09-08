@@ -209,6 +209,15 @@ gsap.from(".about-video", {
   },
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  let videoTL = gsap.timeline();
+
+  videoTL.from(".about-video-about", {
+    clipPath: "inset(0 100% 0 0)", // wipe from right to left
+    duration: 3,
+    ease: "power4.inOut",
+  });
+});
 //*******************************************/
 //Main image updater for gallery and home page
 //*******************************************/
