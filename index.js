@@ -197,6 +197,7 @@ gsap.utils.toArray(".about-icon").forEach((icon) => {
   });
 });
 
+//Video Home Page animation
 gsap.from(".about-video", {
   scale: 1.2,
   opacity: 0,
@@ -209,6 +210,7 @@ gsap.from(".about-video", {
   },
 });
 
+//about video animation
 document.addEventListener("DOMContentLoaded", () => {
   let videoTL = gsap.timeline();
 
@@ -216,6 +218,16 @@ document.addEventListener("DOMContentLoaded", () => {
     clipPath: "inset(0 100% 0 0)", // wipe from right to left
     duration: 3,
     ease: "power4.inOut",
+  });
+
+  gsap.to(".ProfileImage", {
+    clipPath: "circle(140% at 50% 50%)", // mask expands outward like brush spreading
+    duration: 5,
+    scrollTrigger: {
+      trigger: ".ProfileImage",
+      start: "top 85%",
+      toggleActions: "play none none reverse",
+    },
   });
 });
 //*******************************************/
