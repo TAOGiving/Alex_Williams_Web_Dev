@@ -310,6 +310,14 @@ body {
   z-index: 1;
   /* cursor: pointer; */
 }
+.foreground_image:hover {
+  position: relative;
+  width: auto;
+  height: 75vh;
+  z-index: 1;
+  content: url("/images/cropped_profile.png");
+  /* cursor: pointer; */
+}
 
 @media (max-width: 991px) {
   .foreground_image {
@@ -528,6 +536,15 @@ iframe {
 #Bio_video {
   width: 90vw;
   height: 80vh;
+  aspect-ratio: 5/3;
+}
+
+@media (max-width: 481px) {
+  /* smartphones, iPhone, portrait 480x320 phones */
+  #Bio_video {
+    width: 90vw;
+    height: 30%;
+  }
 }
 
 #FP_Video {

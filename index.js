@@ -48,7 +48,7 @@ if (!sessionStorage.getItem("visited")) {
     .querySelector("#alexProfileImage")
     .addEventListener("mouseenter", () => {
       gsap.to("#alexProfileImage", {
-        rotation: -5,
+        // rotation: -5,
         scale: 1.05,
         duration: 0.4,
         ease: "back.out(2)",
@@ -58,7 +58,7 @@ if (!sessionStorage.getItem("visited")) {
     .querySelector("#alexProfileImage")
     .addEventListener("mouseleave", () => {
       gsap.to("#alexProfileImage", {
-        rotation: 0,
+        // rotation: 0,
         scale: 1,
         duration: 0.4,
         ease: "back.in(2)",
